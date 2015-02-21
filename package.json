@@ -1,4 +1,7 @@
 {
+  "name": "commonform-terminal",
+  "description": "display Common Form projects at text terminals",
+  "version": "0.1.1",
   "author": {
     "name": "Kyle E. Mitchell",
     "email": "kyle@kemitchell.com",
@@ -7,7 +10,6 @@
   "bugs": {
     "url": "https://github.com/commonform/commonform-terminal/issues"
   },
-  "description": "display Common Form projects at text terminals",
   "dependencies": {
     "chalk": "^0.5.1",
     "commonform-flatten": "0.1.x",
@@ -33,18 +35,16 @@
   ],
   "license": "Apache-2.0",
   "main": "source/index",
-  "name": "commonform-terminal",
   "repository": {
     "type": "git",
     "url": "https://github.com/commonform/commonform-terminal.git"
   },
   "scripts": {
     "check": "check-versions --check-module",
-    "pre-commit": "npm run lint && npm run check && npm run coverage",
-    "lint": "jshint source test && jscs source test",
     "coverage": "istanbul cover _mocha && istanbul check-coverage coverage/coverage.json",
+    "lint": "jshint source test && jscs source test",
+    "pre-commit": "npm run lint && npm run check && npm run coverage",
     "test": "mocha",
     "travis-ci": "npm run pre-commit"
-  },
-  "version": "0.1.1"
+  }
 }
