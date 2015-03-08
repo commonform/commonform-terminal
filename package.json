@@ -13,9 +13,9 @@
   "dependencies": {
     "chalk": "^0.5.1",
     "commonform-decimal-numbers": "^0.1.1",
-    "commonform-flatten": "^0.2.0",
-    "commonform-number": "^0.2.1",
-    "commonform-resolve": "^0.2.1"
+    "commonform-flatten": "^0.3.0",
+    "commonform-number": "^0.3.0",
+    "commonform-resolve": "^0.3.0"
   },
   "devDependencies": {
     "chai": "^1.10.0",

@@ -10,8 +10,8 @@ module.exports = function(paragraph, numberStyle) {
   return new Array(paragraph.get('depth') * 4 + 1).join(' ') +
     (number ?
       chalk.gray(numberStyle.provision(number)) + TAB : '') +
-    (paragraph.has('summary') ?
-      chalk.blue.underline(paragraph.get('summary')) + '. ' : '') +
+    (paragraph.has('heading') ?
+      chalk.blue.underline(paragraph.get('heading')) + '. ' : '') +
     paragraph.get('content').map(function(element) {
       return run(element, numberStyle, conspicuous);
     }).join('') +
