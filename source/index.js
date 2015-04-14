@@ -1,7 +1,5 @@
 var doc = require('./templates/document');
 
-module.exports = function(project) {
-  return doc(project);
-};
+module.exports = doc;
 
-module.exports.version = '0.3.0';
+module.exports.version = '1.0.0-rc1';
