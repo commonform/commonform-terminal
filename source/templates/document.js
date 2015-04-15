@@ -5,9 +5,9 @@ var resolve = require('commonform-resolve');
 
 var paragraph = require('./paragraph');
 
-module.exports = function(project) {
-  var form = project.form;
-  var resolved = resolve(form, project.values, number(form));
+module.exports = function(form, values) {
+  var form = form;
+  var resolved = resolve(form, values);
   var flattened = flatten(resolved);
   return flattened.map(function(element) {
     return paragraph(element, decimalStyle);

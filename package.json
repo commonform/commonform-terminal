@@ -1,41 +1,35 @@
 {
   "name": "commonform-terminal",
-  "description": "display Common Form projects at text terminals",
+  "description": "display Common Forms at text terminals",
   "version": "1.0.0-rc1",
-  "author": {
-    "name": "Kyle E. Mitchell",
-    "email": "kyle@kemitchell.com",
-    "url": "http://kemitchell.com/"
-  },
-  "bugs": {
-    "url": "https://github.com/commonform/commonform-terminal/issues"
-  },
+  "author": "Kyle E. Mitchell <kyle@kemitchell.com> (http://kemitchell.com)",
+  "bugs": "https://github.com/commonform/commonform-terminal/issues",
   "dependencies": {
     "chalk": "^0.5.1",
-    "check-versions": "1.x",
-    "commonform-decimal-numbers": "1.x",
-    "commonform-flatten": "1.x",
-    "commonform-number": "1.x",
-    "commonform-resolve": "1.x"
+    "commonform-flatten": "^0.4.0",
+    "commonform-number": "^0.4.0",
+    "commonform-resolve": "^0.4.0",
+    "decimal-numbering": "^1.0.0"
   },
   "devDependencies": {
-    "check-versions": "1.x",
+    "check-versions": "^1.0.0",
     "jscs": "^1.10.0",
     "jshint": "^2.6.0"
   },
-  "homepage": "https://github.com/commonform/commonform-terminal",
+  "homepage": "https://commonform.github.io",
   "keywords": [
+    "ANSI",
     "contracts",
     "document assembly",
+    "escape codes",
     "knowledge management",
-    "law"
+    "law",
+    "listing",
+    "terminal"
   ],
   "license": "Apache-2.0",
-  "main": "source/index",
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/commonform/commonform-terminal.git"
-  },
+  "main": "source/index.js",
+  "repository": "commonform/commonform-terminal",
   "scripts": {
     "check": "check-versions --check-module",
     "lint": "jshint source && jscs source",
