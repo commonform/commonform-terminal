@@ -15,7 +15,7 @@ module.exports = function run(element, numberStyle, conspicuous) {
     ) {
       return chalk.yellow(reference);
     } else {
-      return chalk.cyan(numberStyle(reference));
+      return chalk.cyan('Section ' + numberStyle(reference));
     }
   } else {
     throw new Error('Invalid type: ' + JSON.stringify(element));
