@@ -7,8 +7,6 @@
   "dependencies": {
     "chalk": "^0.5.1",
     "commonform-flatten": "^0.4.0",
-    "commonform-number": "^0.4.0",
-    "commonform-resolve": "^0.4.0",
     "decimal-numbering": "^1.0.0"
   },
   "devDependencies": {
@@ -28,7 +26,7 @@
     "terminal"
   ],
   "license": "Apache-2.0",
-  "main": "source/index.js",
+  "main": "source/index",
   "repository": "commonform/commonform-terminal",
   "scripts": {
     "check": "check-versions --check-module",
