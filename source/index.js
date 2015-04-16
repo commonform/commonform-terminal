@@ -4,4 +4,4 @@ module.exports = function() {
   return codes.slice(0, codes.length - 2);
 };
 
-module.exports.version = '0.4.1';
+module.exports.version = '0.4.2';
