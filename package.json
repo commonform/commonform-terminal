@@ -30,7 +30,7 @@
   "repository": "commonform/commonform-terminal",
   "scripts": {
     "check": "check-versions --check-module",
-    "lint": "jshint source && jscs source",
-    "pre-commit": "npm run check && npm run lint"
+    "lint": "jshint --config .dotfiles/jshint.json source && jscs --config .dotfiles/jscs.json source",
+    "precommit": "npm run check && npm run lint"
   }
 }
