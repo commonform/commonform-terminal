@@ -9,10 +9,6 @@
     "commonform-flatten": "0.5.x",
     "decimal-numbering": "^1.0.0"
   },
-  "devDependencies": {
-    "jscs": "^1.10.0",
-    "jshint": "^2.6.0"
-  },
   "homepage": "https://commonform.github.io",
   "keywords": [
     "ANSI",
@@ -26,9 +22,5 @@
   ],
   "license": "Apache-2.0",
   "main": "source/index",
-  "repository": "commonform/commonform-terminal",
-  "scripts": {
-    "lint": "jshint --config .dotfiles/jshint.json source && jscs --config .dotfiles/jscs.json source",
-    "precommit": "npm run lint"
-  }
+  "repository": "commonform/commonform-terminal"
 }
