@@ -10,7 +10,6 @@
     "decimal-numbering": "^1.0.0"
   },
   "devDependencies": {
-    "check-versions": "^1.0.0",
     "jscs": "^1.10.0",
     "jshint": "^2.6.0"
   },
@@ -29,8 +28,7 @@
   "main": "source/index",
   "repository": "commonform/commonform-terminal",
   "scripts": {
-    "check": "check-versions --check-module",
     "lint": "jshint --config .dotfiles/jshint.json source && jscs --config .dotfiles/jscs.json source",
-    "precommit": "npm run check && npm run lint"
+    "precommit": "npm run lint"
   }
 }
