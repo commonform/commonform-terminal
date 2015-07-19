@@ -7,7 +7,7 @@ module.exports = function run(element, numberStyle, conspicuous) {
     return '"' + chalk.green(element.definition) + '"';
   } else if (element.hasOwnProperty('blank')) {
     return chalk.red.underline(element.blank);
-  } else if (element.hasOwnProperty('numbering')) {
+  } else if (element.hasOwnProperty('heading')) {
     var numbering = element.numbering;
     var heading = element.heading;
     if (
