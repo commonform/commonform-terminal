@@ -21,6 +21,5 @@
     "terminal"
   ],
   "license": "Apache-2.0",
-  "main": "source/index",
   "repository": "commonform/commonform-terminal"
 }
