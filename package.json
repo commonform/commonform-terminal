@@ -9,6 +9,10 @@
     "commonform-flatten": "0.5.x",
     "decimal-numbering": "^1.0.0"
   },
+  "devDependencies": {
+    "jsmd-tape": "^0.1.0",
+    "tape": "^4.0.1"
+  },
   "homepage": "https://commonform.github.io",
   "keywords": [
     "ANSI",
@@ -24,9 +28,5 @@
   "repository": "commonform/commonform-terminal",
   "scripts": {
     "test": "jsmd-tape README.md | sed 's!commonform-tex!./!' | node"
-  },
-  "devDependencies": {
-    "jsmd-tape": "^0.1.0",
-    "tape": "^4.0.1"
   }
 }
