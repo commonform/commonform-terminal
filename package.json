@@ -6,7 +6,7 @@
   "bugs": "https://github.com/commonform/commonform-terminal/issues",
   "dependencies": {
     "chalk": "^1.0.0",
-    "commonform-flatten": "0.5.x",
+    "commonform-flatten": "0.6.x",
     "decimal-numbering": "^1.0.0"
   },
   "devDependencies": {
