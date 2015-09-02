@@ -11,9 +11,7 @@
   },
   "devDependencies": {
     "defence-cli": "~1.0.1",
-    "jsmd-tape": "^0.1.0",
-    "replace-require-self": "~1.0.0",
-    "tape": "^4.0.1"
+    "replace-require-self": "~1.0.0"
   },
   "homepage": "https://commonform.github.io",
   "keywords": [
