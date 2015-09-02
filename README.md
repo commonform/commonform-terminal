@@ -1,4 +1,4 @@
-```javacript
+```javascript
 var terminal = require('commonform-terminal')
 var assert = require('assert')
 
