@@ -19,6 +19,8 @@ module.exports = function run(element, numberStyle, conspicuous) {
     return conspicuous ? chalk.magenta(element) : element;
   } else if (element.hasOwnProperty('definition')) {
     return '"' + chalk.green(element.definition) + '"';
+  } else if (element.hasOwnProperty('use')) {
+    return '"' + chalk.orange(element.definition) + '"';
   } else if (element.hasOwnProperty('blank')) {
     return chalk.red.underline(element.blank);
   } else if (element.hasOwnProperty('heading')) {
