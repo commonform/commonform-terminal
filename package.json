@@ -10,7 +10,9 @@
     "decimal-numbering": "^1.0.0"
   },
   "devDependencies": {
+    "defence-cli": "~1.0.1",
     "jsmd-tape": "^0.1.0",
+    "replace-require-self": "~1.0.0",
     "tape": "^4.0.1"
   },
   "homepage": "https://commonform.github.io",
@@ -27,6 +29,6 @@
   "license": "Apache-2.0",
   "repository": "commonform/commonform-terminal",
   "scripts": {
-    "test": "jsmd-tape README.md | sed 's!commonform-tex!./!' | node"
+    "test": "defence README.md | replace-require-self | node"
   }
 }
