@@ -20,7 +20,7 @@ module.exports = function run(element, numberStyle, conspicuous) {
   } else if (element.hasOwnProperty('definition')) {
     return '"' + chalk.green(element.definition) + '"';
   } else if (element.hasOwnProperty('use')) {
-    return '"' + chalk.orange(element.definition) + '"';
+    return '"' + chalk.magenta(element.definition) + '"';
   } else if (element.hasOwnProperty('blank')) {
     return chalk.red.underline(element.blank);
   } else if (element.hasOwnProperty('heading')) {
