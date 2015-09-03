@@ -33,7 +33,7 @@ module.exports = function run(element, numberStyle, conspicuous) {
       return chalk.yellow(heading);
     } else {
       return chalk.cyan(
-        'Section ' + numberStyle(numbering) +
+        numberStyle(numbering) +
         ' (' + heading + ')'
       );
     }
