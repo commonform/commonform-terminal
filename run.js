@@ -22,7 +22,7 @@ module.exports = function run(element, numberStyle, conspicuous) {
   } else if (element.hasOwnProperty('use')) {
     return chalk.magenta(element.use);
   } else if (element.hasOwnProperty('blank')) {
-    return chalk.red.underline('[•]');
+    return chalk.red.underline('[_]');
   } else if (element.hasOwnProperty('heading')) {
     var numbering = element.numbering;
     var heading = element.heading;
