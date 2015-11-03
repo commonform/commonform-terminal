@@ -30,7 +30,7 @@ assert.equal(
         ", each a ",
         { "definition": "Party" },
         ")." ] },
-    { /* no blanks */ },
+    [ /* no blank values */ ],
     { /* no options */ }),
   [ "    This \u001b[35mAgreement\u001b[39m (this \"",
     "\u001b[32mAgreement\u001b[39m\" is made effective as of ",
@@ -43,4 +43,12 @@ assert.equal(
     "Purchasers\u001b[39m (\"\u001b[32mPurchasers\u001b[39m\", and ",
     "together with \u001b[35mCompany\u001b[39m, each a \"\u001b[32m",
     "Party\u001b[39m\")." ].join(''))
+
+assert.equal(
+  terminal(
+    { "content": [ { "blank": "" } ] },
+    [ { blank: [ 'content', 0 ],
+        value: 'NewCo, Inc.' } ],
+    { /* no options */ }),
+  "    \u001b[31m\u001b[4m[NewCo, Inc.]\u001b[24m\u001b[39m")
 ```
