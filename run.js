@@ -16,16 +16,16 @@ var chalk = require('chalk');
 
 module.exports = function run(element, numberStyle, conspicuous) {
   if (typeof element === 'string') {
-    return conspicuous ? chalk.magenta(element) : element;
+    done(conspicuous ? chalk.magenta(element) : element);
   } else if (element.hasOwnProperty('definition')) {
-    return '"' + chalk.green(element.definition) + '"';
+    done('"' + chalk.green(element.definition) + '"');
   } else if (element.hasOwnProperty('use')) {
     return chalk.magenta(element.use);
   } else if (element.hasOwnProperty('blank')) {
     if (element.blank === undefined) {
-      return chalk.red.underline('[_]');
+      done(chalk.red.underline('[_]'));
     } else {
-      return chalk.red.underline('[' + element.blank + ']');
+      done(chalk.red.underline('[' + element.blank + ']'));
     }
   } else if (element.hasOwnProperty('heading')) {
     var numbering = element.numbering;
@@ -34,14 +34,26 @@ module.exports = function run(element, numberStyle, conspicuous) {
       element.hasOwnProperty('broken') ||
       element.hasOwnProperty('ambiguous')
     ) {
-      return chalk.yellow(heading);
+      done(chalk.yellow(heading));
     } else {
-      return chalk.cyan(
+      done(chalk.cyan(
         numberStyle(numbering) +
         ' (' + heading + ')'
-      );
+      ));
     }
   } else {
     throw new Error('Invalid type: ' + JSON.stringify(element));
   }
+  function done(input) {
+    var returned = ''
+    if (element.deleted) {
+      returned += chalk.styles.strikethrough.open }
+    if (element.inserted) {
+      returned += chalk.styles.underline.open }
+    returned += input
+    if (element.deleted) {
+      returned += chalk.styles.strikethrough.close }
+    if (element.inserted) {
+      returned += chalk.styles.underline.close }
+    return returned }
 };
