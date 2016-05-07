@@ -25,9 +25,9 @@ module.exports = function run(element, numberStyle, conspicuous) {
     return chalk.magenta(element.use);
   } else if (element.hasOwnProperty('blank')) {
     if (element.blank === undefined) {
-      done(chalk.red.underline('[_]'));
+      done(chalk.red.inverse('[_]'));
     } else {
-      done(chalk.red.underline('[' + element.blank + ']'));
+      done(chalk.red.inverse('[' + element.blank + ']'));
     }
   } else if (element.hasOwnProperty('heading')) {
     var numbering = element.numbering;
