@@ -17,6 +17,8 @@ var chalk = require('chalk');
 module.exports = function run(element, numberStyle, conspicuous) {
   if (typeof element === 'string') {
     done(conspicuous ? chalk.magenta(element) : element);
+  } else if (element.hasOwnProperty('word')) {
+    done(conspicuous ? chalk.magenta(element.word) : element.word);
   } else if (element.hasOwnProperty('definition')) {
     done('"' + chalk.green(element.definition) + '"');
   } else if (element.hasOwnProperty('use')) {
