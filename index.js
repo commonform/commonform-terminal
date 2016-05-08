@@ -52,8 +52,7 @@ var CONSPICUOUS = '[CONSPICUOUS:]'
 var CHANGED = '*'
 
 function childString(child, depth) {
-  var returned = ( ( hasEdit(child) ? CHANGED : '' ) + ' ' )
-  returned += INDENT.repeat(depth)
+  var returned = INDENT.repeat(depth)
   if (child.heading.length !== 0) {
     returned += wrapper(ansi.bold)(
       child.heading.map(contentString).join('') + '. ') }
@@ -68,7 +67,9 @@ function childString(child, depth) {
           ? ( '\n\n' + childString(element, ( depth + 1 )) )
           : contentString(element) ) })
     .join('')
-  return returned }
+  return (
+    ( ( hasEdit(child) ? CHANGED : '' ) + ' ' ) +
+    editStyle(child)(returned) ) }
 
 function id(x) {
   return x }
@@ -83,11 +84,15 @@ function wrapper(/* style1, style2 ... */) {
         argument) } }
 
 function hasEdit(child) {
-  return [ ]
-    .concat(child.heading)
-    .concat(child.form.conspicuous)
-    .concat(child.form.content)
-    .some(function(element) {
-      return (
-        element.hasOwnProperty('deleted') ||
-        element.hasOwnProperty('inserted') ) }) }
+  return (
+    child.inserted ||
+    child.deleted ||
+    [ ]
+      .concat(child.heading)
+      .concat(child.form.conspicuous)
+      .concat(child.form.content)
+      .some(function(element) {
+        return (
+          ( element.hasOwnProperty('deleted') ||
+            element.hasOwnProperty('inserted') ) &&
+          !element.hasOwnProperty('form') ) }) ) }
