@@ -35,7 +35,7 @@ function editStyle(element) {
     return id } }
 
 function stringify(diff) {
-  return childString({ heading: [ ], form: diff }, 0) }
+  return childString({ heading: [ ], form: diff }, 0).trim() }
 
 function contentString(content) {
   var returned = ''
