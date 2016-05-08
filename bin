@@ -1,0 +1,9 @@
+#!/usr/bin/env node
+var buffers = [ ]
+var terminal = require('./')
+process.stdin
+  .on('data', function(buffer) {
+    buffers.push(buffer) })
+  .on('end', function() {
+    var input = JSON.parse(Buffer.concat(buffers))
+    process.stdout.write(terminal(input) + '\n') })

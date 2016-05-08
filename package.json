@@ -3,6 +3,7 @@
   "description": "display Common Forms at text terminals",
   "version": "0.9.2",
   "author": "Kyle E. Mitchell <kyle@kemitchell.com> (http://kemitchell.com)",
+  "bin": "./bin",
   "bugs": "https://github.com/commonform/commonform-terminal/issues",
   "dependencies": {
     "ansi-styles": "^2.2.1",
