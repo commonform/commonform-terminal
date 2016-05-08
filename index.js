@@ -18,19 +18,19 @@ var ansi = require('ansi-styles')
 
 var styles = {
   word: id,
-  use: wrapper(ansi.grey),
-  definition: wrapper(ansi.green),
-  reference: wrapper(ansi.magenta),
-  blank: id }
+  use: wrapper(ansi.dim),
+  definition: wrapper(ansi.bold, { open: '"', close: '"' }),
+  reference: wrapper({ open: '[Reference: ', close: ']' }),
+  blank: wrapper({ open: '[____', close: '____]' }) }
 
-var underline = wrapper(ansi.underline)
-var strike = wrapper(ansi.strikethrough)
+var insertion = wrapper(ansi.underline, ansi.bgGreen)
+var deletion = wrapper(ansi.strikethrough, ansi.bgRed)
 
 function editStyle(element) {
   if (element.deleted) {
-    return strike }
+    return deletion }
   else if (element.inserted) {
-    return underline }
+    return insertion }
   else {
     return id } }
 
@@ -42,10 +42,7 @@ function contentString(content) {
   Object.keys(styles)
     .forEach(function(key) {
       if (content.hasOwnProperty(key)) {
-        returned += styles[key](
-          ( key === 'blank'
-              ? '[________]'
-              : content[key] )) } })
+        returned += styles[key](content[key]) } })
   return editStyle(content)(returned) }
 
 var INDENT = '    '
@@ -76,9 +73,14 @@ function childString(child, depth) {
 function id(x) {
   return x }
 
-function wrapper(style) {
+function wrapper(/* style1, style2 ... */) {
+  var styles = Array.prototype.slice.call(arguments)
   return function(argument) {
-    return ( style.open + argument + style.close ) } }
+    return styles
+      .reduce(
+        function(returned, style) {
+          return ( style.open + returned + style.close ) },
+        argument) } }
 
 function hasEdit(child) {
   return [ ]
