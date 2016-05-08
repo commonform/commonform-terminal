@@ -20,7 +20,7 @@ var styles = {
   word: id,
   use: wrapper(ansi.grey),
   definition: wrapper(ansi.green),
-  reference: wrapper(ansi.red),
+  reference: wrapper(ansi.magenta),
   blank: id }
 
 var underline = wrapper(ansi.underline)
@@ -52,8 +52,11 @@ var INDENT = '    '
 
 var CONSPICUOUS = '[CONSPICUOUS:]'
 
+var CHANGED = '*'
+
 function childString(child, depth) {
-  var returned = INDENT.repeat(depth)
+  var returned = ( ( hasEdit(child) ? CHANGED : '' ) + ' ' )
+  returned += INDENT.repeat(depth)
   if (child.heading.length !== 0) {
     returned += wrapper(ansi.bold)(
       child.heading.map(contentString).join('') + '. ') }
@@ -76,3 +79,13 @@ function id(x) {
 function wrapper(style) {
   return function(argument) {
     return ( style.open + argument + style.close ) } }
+
+function hasEdit(child) {
+  return [ ]
+    .concat(child.heading)
+    .concat(child.form.conspicuous)
+    .concat(child.form.content)
+    .some(function(element) {
+      return (
+        element.hasOwnProperty('deleted') ||
+        element.hasOwnProperty('inserted') ) }) }
