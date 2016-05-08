@@ -18,23 +18,27 @@ var ansi = require('ansi-styles')
 
 var styles = {
   word: id,
-  use: wrap(ansi.blue),
-  definition: wrap(ansi.green),
-  reference: wrap(ansi.red),
+  use: wrapper(ansi.grey),
+  definition: wrapper(ansi.green),
+  reference: wrapper(ansi.red),
   blank: id }
+
+var underline = wrapper(ansi.underline)
+var strike = wrapper(ansi.strikethrough)
+
+function editStyle(element) {
+  if (element.deleted) {
+    return strike }
+  else if (element.inserted) {
+    return underline }
+  else {
+    return id } }
 
 function stringify(diff) {
   return childString({ heading: [ ], form: diff }, 0) }
 
 function contentString(content) {
   var returned = ''
-
-  var wrapper = id
-  if (content.hasOwnProperty('deleted')) {
-    wrapper = wrap(ansi.strikethrough) }
-  else if (content.hasOwnProperty('inserted')) {
-    wrapper = wrap(ansi.underline) }
-
   Object.keys(styles)
     .forEach(function(key) {
       if (content.hasOwnProperty(key)) {
@@ -42,32 +46,33 @@ function contentString(content) {
           ( key === 'blank'
               ? '[________]'
               : content[key] )) } })
-
-  return wrapper(returned) }
+  return editStyle(content)(returned) }
 
 var INDENT = '    '
+
+var CONSPICUOUS = '[CONSPICUOUS:]'
 
 function childString(child, depth) {
   var returned = INDENT.repeat(depth)
   if (child.heading.length !== 0) {
-    returned += wrap(ansi.bold)(
-      child.heading
-        .map(function(element) {
-          return contentString(element) })
-        .join('') +
-      ' ') }
-  returned += child.form.content
+    returned += wrapper(ansi.bold)(
+      child.heading.map(contentString).join('') + '. ') }
+  var form = child.form
+  var conspicuous = form.conspicuous
+  if (conspicuous.length !== 0) {
+    returned += editStyle(conspicuous[0])(CONSPICUOUS) }
+  returned += form.content
     .map(function(element) {
-      if (element.hasOwnProperty('form')) {
-        return ( '\n\n' + childString(element, ( depth + 1 )) ) }
-      else {
-        return contentString(element, process.stdout) } })
-      .join('')
+      return (
+        element.hasOwnProperty('form')
+          ? ( '\n\n' + childString(element, ( depth + 1 )) )
+          : contentString(element) ) })
+    .join('')
   return returned }
 
 function id(x) {
   return x }
 
-function wrap(style) {
+function wrapper(style) {
   return function(argument) {
     return ( style.open + argument + style.close ) } }
