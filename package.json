@@ -11,7 +11,9 @@
   "devDependencies": {
     "decimal-numbering": "^2.0.1",
     "defence-cli": "^2.0.1",
-    "replace-require-self": "^1.1.1"
+    "replace-require-self": "^1.1.1",
+    "standard": "^10.0.3",
+    "standard-markdown": "^4.0.2"
   },
   "homepage": "https://commonform.github.io",
   "keywords": [
@@ -27,6 +29,7 @@
   "license": "Apache-2.0",
   "repository": "commonform/commonform-terminal",
   "scripts": {
-    "test": "defence README.md | replace-require-self | node"
+    "test": "defence README.md | replace-require-self | node",
+    "lint": "standard && standard-markdown"
   }
 }
