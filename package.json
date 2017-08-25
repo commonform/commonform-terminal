@@ -29,7 +29,7 @@
   "license": "Apache-2.0",
   "repository": "commonform/commonform-terminal",
   "scripts": {
-    "test": "defence README.md | replace-require-self | node",
+    "test": "FORCE_COLOR=1 defence README.md | replace-require-self | node",
     "lint": "standard && standard-markdown"
   }
 }
