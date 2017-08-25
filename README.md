@@ -1,5 +1,6 @@
 ```javascript
 var terminal = require('commonform-terminal')
+var decimal = require('decimal-numbering')
 var assert = require('assert')
 
 assert.equal(
@@ -31,7 +32,7 @@ assert.equal(
         { "definition": "Party" },
         ")." ] },
     [ /* no blank values */ ],
-    { /* no options */ }),
+    {numbering: decimal}),
   [ "    This \u001b[35mAgreement\u001b[39m (this \"",
     "\u001b[32mAgreement\u001b[39m\" is made effective as of ",
     "the date the last \u001b[35mParty\u001b[39m signs this ",
@@ -49,6 +50,6 @@ assert.equal(
     { "content": [ { "blank": "" } ] },
     [ { blank: [ 'content', 0 ],
         value: 'NewCo, Inc.' } ],
-    { /* no options */ }),
+    {numbering: decimal}),
   "    \u001b[31m\u001b[4m[NewCo, Inc.]\u001b[24m\u001b[39m")
 ```
