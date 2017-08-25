@@ -23,7 +23,7 @@ module.exports = function (paragraph, numberStyle) {
       : ''
   var conspicuous = paragraph.hasOwnProperty('conspicuous')
   return new Array(paragraph.depth * 4 + 1).join(' ') +
-    (number ? chalk.gray(numberStyle(number)) + TAB : '') +
+    (number ? chalk.gray(numberStyle(number, true)) + ' ' : '') +
     (
       paragraph.hasOwnProperty('heading')
         ? chalk.blue.underline(paragraph.heading) + '. '
