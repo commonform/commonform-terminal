@@ -11,7 +11,7 @@
   "devDependencies": {
     "decimal-numbering": "^2.0.1",
     "defence-cli": "^2.0.1",
-    "replace-require-self": "~1.0.0"
+    "replace-require-self": "^1.1.1"
   },
   "homepage": "https://commonform.github.io",
   "keywords": [
